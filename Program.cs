@@ -21,7 +21,7 @@ namespace SupportTool
 
             BuildConfiguration();
 
-            StartWithChosenOptions();
+            StartChosenProgram();
         }
 
         private static void WriteIntroduction()
@@ -35,7 +35,7 @@ namespace SupportTool
         private static void WriteChoiceOfProgram()
         {
             Console.WriteLine("# Which program you want to run (hit 1 for Program1)?");
-            Console.WriteLine("1. Program 1\n2. Program 2\n3. Program 3\n4. Program 4\n5. Program 5\n6. Program 6\n7. Program 7\n8. Program 8\n9. Program 9\n10. Program 10");
+            Console.WriteLine("1. Program 1\n2. Program 2");
             Console.Write("> Program: ");
             _chosenProgram = (ProgramsEnum)int.Parse(Console.ReadLine());
 
@@ -70,11 +70,24 @@ namespace SupportTool
             }
         }
 
-        private static void StartWithChosenOptions()
+        private static void StartChosenProgram()
         {
             Console.WriteLine($"=> You will now run {_chosenProgram} in {_chosenEnvironment}");
             Console.Write("\nPress any key to continue");
             Console.ReadKey(true);
+            Console.WriteLine("");
+            Console.WriteLine("");
+            switch (_chosenProgram)
+            {
+                case ProgramsEnum.Program1:
+                    Program1.Startup.Run();
+                    break;
+                case ProgramsEnum.Program2:
+                    Program2.Startup.Run();
+                    break;
+                default:
+                    break;
+            }
         }
 
         private static void BuildConfiguration()

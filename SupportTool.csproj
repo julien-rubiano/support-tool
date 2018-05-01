@@ -6,9 +6,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Program1\**" />
+    <Compile Remove="Program2\**" />
+    <EmbeddedResource Remove="Program1\**" />
+    <EmbeddedResource Remove="Program2\**" />
+    <None Remove="Program1\**" />
+    <None Remove="Program2\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.0.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="2.0.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="Program1\Program1.csproj" />
+    <ProjectReference Include="Program2\Program2.csproj" />
   </ItemGroup>
 
 </Project>
